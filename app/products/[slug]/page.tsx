@@ -23,85 +23,106 @@ const getProductData = (slug: string) => {
       {
         id: "how-to-consume",
         title: "How to consume?",
-        content: `
-          <div class="space-y-6">
-            <h4 class="text-xl font-semibold text-black mb-4">Dosage Instructions</h4>
-            <p class="text-lg text-gray-700 leading-relaxed">${product.howToUse}</p>
+        content: (
+          <div className="space-y-6">
+            <h4 className="text-xl font-semibold text-black mb-4">
+              Dosage Instructions
+            </h4>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {product.howToUse}
+            </p>
 
-            <h4 class="text-xl font-semibold text-black mb-4">Best Time to Take</h4>
-            <p class="text-lg text-gray-700 leading-relaxed">Morning and evening, preferably 30 minutes after meals for optimal absorption.</p>
+            <h4 className="text-xl font-semibold text-black mb-4">
+              Best Time to Take
+            </h4>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Morning and evening, preferably 30 minutes after meals for optimal
+              absorption.
+            </p>
 
-            <h4 class="text-xl font-semibold text-black mb-4">Duration</h4>
-            <p class="text-lg text-gray-700 leading-relaxed">For best results, continue for 3-6 months or as directed by your Ayurvedic practitioner.</p>
+            <h4 className="text-xl font-semibold text-black mb-4">Duration</h4>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              For best results, continue for 3-6 months or as directed by your
+              Ayurvedic practitioner.
+            </p>
 
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6">
-              <p class="text-sm text-yellow-800">
-                <strong>Note:</strong> Consult with our Ayurvedacharya for personalized dosage recommendations based on your constitution and health condition.
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6">
+              <p className="text-sm text-yellow-800">
+                <strong>Note:</strong> Consult with our Ayurvedacharya for
+                personalized dosage recommendations based on your constitution
+                and health condition.
               </p>
             </div>
           </div>
-        `,
+        ),
       },
       {
         id: "ingredients",
         title: "Product Key Ingredients",
-        content: `
-          <div class="space-y-6">
-            <h4 class="text-xl font-semibold text-black mb-4">Key Ayurvedic Ingredients</h4>
+        content: (
+          <div className="space-y-6">
+            <h4 className="text-xl font-semibold text-black mb-4">
+              Key Ayurvedic Ingredients
+            </h4>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              ${product.ingredients
-                .map(
-                  (ingredient) => `
-                <div class="bg-white p-4 rounded-lg">
-                  <h5 class="font-semibold text-black mb-2">${ingredient}</h5>
-                  <p class="text-gray-700 text-sm">Traditional Ayurvedic ingredient known for its therapeutic properties.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {product.ingredients.map((ingredient, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg">
+                  <h5 className="font-semibold text-black mb-2">
+                    {ingredient}
+                  </h5>
+                  <p className="text-gray-700 text-sm">
+                    Traditional Ayurvedic ingredient known for its therapeutic
+                    properties.
+                  </p>
                 </div>
-              `,
-                )
-                .join("")}
+              ))}
             </div>
 
-            <div class="bg-green-50 border-l-4 border-green-400 p-4 mt-6">
-              <p class="text-sm text-green-800">
-                All ingredients are sourced from certified organic farms and processed using traditional Ayurvedic methods.
+            <div className="bg-green-50 border-l-4 border-green-400 p-4 mt-6">
+              <p className="text-sm text-green-800">
+                All ingredients are sourced from certified organic farms and
+                processed using traditional Ayurvedic methods.
               </p>
             </div>
           </div>
-        `,
+        ),
       },
       {
         id: "benefits",
         title: "Benefits",
-        content: `
-          <div class="space-y-6">
-            <h4 class="text-xl font-semibold text-black mb-4">Health Benefits</h4>
+        content: (
+          <div className="space-y-6">
+            <h4 className="text-xl font-semibold text-black mb-4">
+              Health Benefits
+            </h4>
 
-            <div class="space-y-4">
-              ${product.benefits
-                .map(
-                  (benefit) => `
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span class="text-white text-xs">✓</span>
+            <div className="space-y-4">
+              {product.benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-white text-xs">✓</span>
                   </div>
                   <div>
-                    <h5 class="font-semibold text-black">${benefit}</h5>
-                    <p class="text-gray-700">Supports overall health and wellness through natural Ayurvedic action</p>
+                    <h5 className="font-semibold text-black">{benefit}</h5>
+                    <p className="text-gray-700">
+                      Supports overall health and wellness through natural
+                      Ayurvedic action
+                    </p>
                   </div>
                 </div>
-              `,
-                )
-                .join("")}
+              ))}
             </div>
 
-            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
-              <p class="text-sm text-blue-800">
-                <strong>Clinical Studies:</strong> Our formulation is backed by traditional Ayurvedic texts and modern research for safe and effective results.
+            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
+              <p className="text-sm text-blue-800">
+                <strong>Clinical Studies:</strong> Our formulation is backed by
+                traditional Ayurvedic texts and modern research for safe and
+                effective results.
               </p>
             </div>
           </div>
-        `,
+        ),
       },
     ],
   };

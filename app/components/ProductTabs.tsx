@@ -5,7 +5,7 @@ import { useState } from "react";
 interface TabContent {
   id: string;
   title: string;
-  content: string | React.ReactNode;
+  content: React.ReactNode;
 }
 
 interface ProductTabsProps {
@@ -41,15 +41,7 @@ export default function ProductTabs({ tabs }: ProductTabsProps) {
             key={tab.id}
             className={`${activeTab === tab.id ? "block" : "hidden"}`}
           >
-            {typeof tab.content === "string" ? (
-              <div className="prose max-w-none">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {tab.content}
-                </p>
-              </div>
-            ) : (
-              tab.content
-            )}
+            {tab.content}
           </div>
         ))}
       </div>
