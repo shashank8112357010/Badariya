@@ -4,14 +4,12 @@ interface BlogPostCardProps {
   title: string;
   category: string;
   imageUrl?: string;
-  href?: string;
 }
 
 export default function BlogPostCard({
   title,
   category,
   imageUrl,
-  href,
 }: BlogPostCardProps) {
   return (
     <div className="w-full">

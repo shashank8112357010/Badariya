@@ -2,7 +2,6 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Image from "next/image";
 
 export default function AboutUs() {
   return (
@@ -79,7 +78,7 @@ export default function AboutUs() {
                     Led by qualified Ayurvedacharyas with decades of experience,
                     our team brings together ancient wisdom and modern
                     scientific understanding to create products that truly make
-                    a difference in people's lives.
+                    a difference in people&apos;s lives.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Every member of our team is committed to maintaining the

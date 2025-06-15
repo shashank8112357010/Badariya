@@ -26,7 +26,6 @@ export default function ProductInfo({
 
   const renderStars = (rating: number) => {
     const stars = [];
-    const fullStars = Math.floor(rating);
 
     for (let i = 0; i < 4; i++) {
       stars.push(
@@ -76,7 +75,7 @@ export default function ProductInfo({
             <div
               key={option.id}
               className={`w-72 h-60 rounded-lg border border-[#FFCA8D] p-5 cursor-pointer transition-colors duration-200 ${
-                index === 0 ? "bg-[#FFEFDD]" : "bg-white"
+                selectedOption === option.id ? "bg-[#FFEFDD]" : "bg-white"
               }`}
               onClick={() => setSelectedOption(option.id)}
             >

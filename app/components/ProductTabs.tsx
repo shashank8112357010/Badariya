@@ -19,7 +19,7 @@ export default function ProductTabs({ tabs }: ProductTabsProps) {
     <div className="w-full">
       {/* Tab Headers */}
       <div className="bg-white flex rounded-t-lg overflow-hidden">
-        {tabs.map((tab, index) => (
+        {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
