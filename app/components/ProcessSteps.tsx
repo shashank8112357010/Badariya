@@ -26,7 +26,7 @@ export default function ProcessSteps() {
 
         {/* Steps */}
         <div className="space-y-16">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div key={step.number} className="flex items-start gap-8">
               <div className="flex items-center gap-4">
                 <h3 className="text-2xl md:text-3xl font-semibold text-[#080808]">

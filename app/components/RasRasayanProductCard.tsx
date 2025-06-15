@@ -81,6 +81,9 @@ export default function RasRasayanProductCard({
         <p className="text-base md:text-lg font-semibold text-black">
           Speciality :-
         </p>
+        <p className="text-sm md:text-base text-gray-600 mt-2 px-2">
+          {speciality}
+        </p>
       </div>
 
       {/* Rating and Reviews */}

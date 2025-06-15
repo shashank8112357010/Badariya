@@ -9,8 +9,6 @@ import { useState } from "react";
 import { blogPosts } from "../data/dummyData";
 
 export default function Blog() {
-  const [searchTerm, setSearchTerm] = useState("");
-
   // Get main blog posts (first 4)
   const mainBlogPosts = blogPosts.slice(0, 4);
 
@@ -24,7 +22,6 @@ export default function Blog() {
     .slice(0, 3);
 
   const handleSearch = (term: string) => {
-    setSearchTerm(term);
     // Implement search functionality here
     console.log("Searching for:", term);
   };
