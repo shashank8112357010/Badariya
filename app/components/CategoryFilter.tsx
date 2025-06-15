@@ -2,58 +2,80 @@
 
 import { useState } from "react";
 
+export interface HealthIssue {
+  id: string;
+  label: string;
+  name: string;
+  description: string;
+}
+
 interface CategoryFilterProps {
-  activeCategory?: string;
-  onCategoryChange?: (category: string) => void;
+  healthIssues: HealthIssue[];
+  activeCategory: string;
+  onCategoryChange: (category: HealthIssue) => void;
 }
 
 export default function CategoryFilter({
-  activeCategory = "Health Issue 2",
+  healthIssues,
+  activeCategory,
   onCategoryChange,
 }: CategoryFilterProps) {
-  const [selected, setSelected] = useState(activeCategory);
-
-  const categories = [
-    { id: "all", label: "All" },
-    { id: "health-issue-2", label: "Health Issue 2" },
-    { id: "health-issue-3", label: "Health Issue 3" },
-    { id: "health-issue-4", label: "Health Issue 4" },
-    { id: "more", label: "..." },
-  ];
-
-  const handleCategoryClick = (categoryId: string, label: string) => {
-    setSelected(label);
-    onCategoryChange?.(categoryId);
+  const handleCategoryClick = (healthIssue: HealthIssue) => {
+    onCategoryChange(healthIssue);
   };
 
   return (
     <div className="w-full px-4 py-8">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-wrap items-center justify-center gap-4">
-          {categories.map((category) => {
-            const isActive = selected === category.label;
-            const isHighlighted = category.label === "Health Issue 2";
+          {/* All Categories Button */}
+          <button
+            onClick={() =>
+              handleCategoryClick({
+                id: "all",
+                label: "All",
+                name: "All Health Issues",
+                description: "All available products",
+              })
+            }
+            className={`
+              px-6 py-3 rounded-xl font-semibold text-lg border-2 transition-all duration-200 hover:shadow-md
+              ${
+                activeCategory === "all"
+                  ? "bg-[#FFEAD1] border-[#F98E10] text-black"
+                  : "bg-[#FFEAD1] border-[#F98E10] text-black hover:bg-[#F98E10] hover:text-white"
+              }
+            `}
+          >
+            All
+          </button>
+
+          {/* Health Issue Buttons */}
+          {healthIssues.map((issue) => {
+            const isActive = activeCategory === issue.id;
 
             return (
               <button
-                key={category.id}
-                onClick={() => handleCategoryClick(category.id, category.label)}
+                key={issue.id}
+                onClick={() => handleCategoryClick(issue)}
                 className={`
-                  px-6 py-3 rounded-xl font-semibold text-lg border-2 transition-all duration-200 hover:shadow-md
+                  px-6 py-3 rounded-xl font-semibold text-lg border-2 transition-all duration-200 hover:shadow-md whitespace-nowrap
                   ${
-                    isHighlighted && isActive
+                    isActive
                       ? "bg-[#F98E10] border-[#CB7A1B] text-white shadow-lg border-4"
-                      : isActive
-                        ? "bg-[#FFEAD1] border-[#F98E10] text-black"
-                        : "bg-[#FFEAD1] border-[#F98E10] text-black hover:bg-[#F98E10] hover:text-white"
+                      : "bg-[#FFEAD1] border-[#F98E10] text-black hover:bg-[#F98E10] hover:text-white"
                   }
-                  ${category.id === "more" ? "px-4" : ""}
                 `}
               >
-                {category.label}
+                {issue.label}
               </button>
             );
           })}
+
+          {/* More Button */}
+          <button className="px-4 py-3 rounded-xl font-semibold text-lg border-2 bg-[#FFEAD1] border-[#F98E10] text-black hover:bg-[#F98E10] hover:text-white transition-all duration-200">
+            ...
+          </button>
         </div>
       </div>
     </div>
