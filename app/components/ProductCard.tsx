@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductCardProps {
   name: string;
@@ -7,6 +8,7 @@ interface ProductCardProps {
   rating: number;
   reviewCount: number;
   imageUrl?: string;
+  slug?: string;
 }
 
 export default function ProductCard({
@@ -16,6 +18,7 @@ export default function ProductCard({
   rating,
   reviewCount,
   imageUrl,
+  slug = "badariya-fat-slim-capsules",
 }: ProductCardProps) {
   const renderStars = (rating: number) => {
     const stars = [];
@@ -51,10 +54,13 @@ export default function ProductCard({
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <Link
+      href={`/products/${slug}`}
+      className="flex flex-col items-center group cursor-pointer"
+    >
       {/* Product Image */}
       <div className="w-full mb-4">
-        <div className="bg-[#FFDAB0] rounded-xl p-8 h-80 flex items-center justify-center">
+        <div className="bg-[#FFDAB0] rounded-xl p-8 h-80 flex items-center justify-center group-hover:shadow-lg transition-shadow duration-200">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -70,7 +76,7 @@ export default function ProductCard({
       </div>
 
       {/* Product Name */}
-      <h3 className="text-center text-base md:text-lg font-semibold text-black mb-2 px-2">
+      <h3 className="text-center text-base md:text-lg font-semibold text-black mb-2 px-2 group-hover:text-[#3A643B] transition-colors">
         {name}
       </h3>
 
@@ -96,6 +102,6 @@ export default function ProductCard({
           <span className="text-xs text-gray-500">Rating Details</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
