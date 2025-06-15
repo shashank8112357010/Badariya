@@ -27,7 +27,7 @@ export default function ProductInfo({
   const renderStars = (ratingValue: number) => {
     const stars = [];
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < ratingValue; i++) {
       stars.push(
         <div
           key={i}

@@ -224,7 +224,7 @@ export default function AboutUs() {
                   Compassion
                 </h3>
                 <p className="text-gray-700">
-                  Caring for our customers' well-being and making healing
+                  Caring for our customers well-being and making healing
                   accessible to everyone
                 </p>
               </div>

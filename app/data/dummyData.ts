@@ -5,6 +5,7 @@ export interface Product {
   name: string;
   slug: string;
   price: string;
+  speciality : string ;
   originalPrice?: string;
   rating: number;
   reviewCount: number;
@@ -96,6 +97,7 @@ export const products: Product[] = [
     name: "Mubex Pain Gold Capsules",
     slug: "mubex-pain-gold",
     price: "845",
+    speciality : 'Joint Pain Relief',
     originalPrice: "995",
     rating: 4.6,
     reviewCount: 2847,
@@ -151,6 +153,7 @@ export const products: Product[] = [
     slug: "joint-flex-oil",
     price: "425",
     originalPrice: "525",
+    speciality : 'Joint Pain Relief',
     rating: 4.4,
     reviewCount: 1523,
     imageUrl:
@@ -190,6 +193,7 @@ export const products: Product[] = [
     originalPrice: "450",
     rating: 4.5,
     reviewCount: 1892,
+    speciality : 'Digestive Health',
     imageUrl:
       "https://images.pexels.com/photos/13787561/pexels-photo-13787561.jpeg",
     images: [
@@ -223,6 +227,7 @@ export const products: Product[] = [
     name: "Acidity Relief Herbal Syrup",
     slug: "acidity-relief-syrup",
     price: "245",
+    speciality : 'Digestive Health',
     originalPrice: "295",
     rating: 4.3,
     reviewCount: 967,
@@ -260,6 +265,7 @@ export const products: Product[] = [
     slug: "breath-easy-capsules",
     price: "395",
     originalPrice: "465",
+    speciality : 'Respiratory Care',
     rating: 4.4,
     reviewCount: 1245,
     imageUrl:
@@ -297,6 +303,7 @@ export const products: Product[] = [
     slug: "immunity-booster-gold",
     price: "675",
     originalPrice: "795",
+    speciality : 'Immunity & Wellness',
     rating: 4.7,
     reviewCount: 3421,
     imageUrl:
@@ -340,6 +347,7 @@ export const products: Product[] = [
     name: "Kamini Vidrawan Ras Keshar Yukta",
     slug: "kamini-vidrawan-ras",
     price: "1245",
+    speciality : 'Immunity & Wellness',
     originalPrice: "1450",
     rating: 4.8,
     reviewCount: 892,
@@ -384,6 +392,7 @@ export const products: Product[] = [
     name: "Diabetes Care Natural Support",
     slug: "diabetes-care-capsules",
     price: "495",
+    speciality : 'Diabetes Care',
     originalPrice: "595",
     rating: 4.5,
     reviewCount: 1876,
@@ -422,6 +431,7 @@ export const products: Product[] = [
     price: "525",
     originalPrice: "625",
     rating: 4.6,
+    speciality : 'Skin Care',
     reviewCount: 2145,
     imageUrl:
       "https://images.pexels.com/photos/13787561/pexels-photo-13787561.jpeg",
