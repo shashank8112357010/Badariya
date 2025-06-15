@@ -5,57 +5,26 @@ import RasRasayanProductCard from "../components/RasRasayanProductCard";
 import BlogCard from "../components/BlogCard";
 import Footer from "../components/Footer";
 
-export default function RasRasayan() {
-  const rasRasayanProducts = [
-    {
-      id: "kamini-vidrawan-ras",
-      name: "Badariya Fat Slim Capsules",
-      speciality:
-        "Enhances vitality and vigor, helps overcome fatigue and weakness",
-      price: "636",
-      originalPrice: "711",
-      rating: 4.5,
-      reviewCount: 1280,
-    },
-    {
-      id: "swarna-bhasma",
-      name: "Badariya Fat Slim Capsules",
-      speciality:
-        "Pure gold ash preparation for ultimate rejuvenation and longevity",
-      price: "636",
-      originalPrice: "711",
-      rating: 4.5,
-      reviewCount: 1280,
-    },
-    {
-      id: "makardhwaja-special",
-      name: "Badariya Fat Slim Capsules",
-      speciality:
-        "Traditional mercury-sulfur preparation for enhanced strength and vitality",
-      price: "636",
-      originalPrice: "711",
-      rating: 4.5,
-      reviewCount: 1280,
-    },
-  ];
+import { products, blogPosts } from "../data/dummyData";
 
-  const blogPosts = [
-    {
-      id: "ras-rasayan-science",
-      title: "The Ancient Science of Ras Rasayan",
-      readTime: "12 mins",
-    },
-    {
-      id: "mercury-processing",
-      title: "Traditional Mercury Processing in Ayurveda",
-      readTime: "15 mins",
-    },
-    {
-      id: "rejuvenation-therapy",
-      title: "Ras Rasayan: The Ultimate Rejuvenation Therapy",
-      readTime: "10 mins",
-    },
-  ];
+export default function RasRasayan() {
+  // Filter Ras Rasayan products
+  const rasRasayanProducts = products
+    .filter(
+      (product) =>
+        product.category === "Ras Rasayan" ||
+        product.name.toLowerCase().includes("ras"),
+    )
+    .slice(0, 3);
+
+  // Get Ras Rasayan related blog posts
+  const rasRasayanBlogs = blogPosts
+    .filter(
+      (post) =>
+        post.title.toLowerCase().includes("ras rasayan") ||
+        post.category.toLowerCase().includes("ras rasayan"),
+    )
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen bg-[#FFF8F0]">

@@ -6,57 +6,22 @@ import BlogPostCard from "../components/BlogPostCard";
 import BlogCard from "../components/BlogCard";
 import Footer from "../components/Footer";
 import { useState } from "react";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  category: string;
-  imageUrl?: string;
-}
+import { blogPosts } from "../data/dummyData";
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const mainBlogPosts: BlogPost[] = [
-    {
-      id: "ayurvedic-immunity",
-      title: "Title of the Blog",
-      category: "Immunity & Wellness",
-    },
-    {
-      id: "herbal-remedies",
-      title: "Title of the Blog",
-      category: "Immunity & Wellness",
-    },
-    {
-      id: "wellness-tips",
-      title: "Title of the Blog",
-      category: "Immunity & Wellness",
-    },
-    {
-      id: "natural-healing",
-      title: "Title of the Blog",
-      category: "Immunity & Wellness",
-    },
-  ];
+  // Get main blog posts (first 4)
+  const mainBlogPosts = blogPosts.slice(0, 4);
 
-  const rasRasayanBlogPosts = [
-    {
-      id: "ras-rasayan-guide",
-      title: "Title of the blog",
-      readTime: "8 mins",
-    },
-    {
-      id: "traditional-medicine",
-      title: "Title of the blog",
-      readTime: "8 mins",
-    },
-    {
-      id: "ayurvedic-metals",
-      title: "Title of the blog",
-      readTime: "8 mins",
-    },
-  ];
+  // Get Ras Rasayan related posts
+  const rasRasayanBlogPosts = blogPosts
+    .filter(
+      (post) =>
+        post.title.toLowerCase().includes("ras rasayan") ||
+        post.category.toLowerCase().includes("ras rasayan"),
+    )
+    .slice(0, 3);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);
