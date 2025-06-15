@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar";
 import BlogPostCard from "../components/BlogPostCard";
 import BlogCard from "../components/BlogCard";
 import Footer from "../components/Footer";
-import { useState } from "react";
 import { blogPosts } from "../data/dummyData";
 
 export default function Blog() {

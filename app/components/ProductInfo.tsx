@@ -24,7 +24,7 @@ export default function ProductInfo({
 }: ProductInfoProps) {
   const [selectedOption, setSelectedOption] = useState(options[0]?.id || "");
 
-  const renderStars = (rating: number) => {
+  const renderStars = (ratingValue: number) => {
     const stars = [];
 
     for (let i = 0; i < 4; i++) {
@@ -71,7 +71,7 @@ export default function ProductInfo({
         </h3>
 
         <div className="flex gap-4">
-          {options.map((option, index) => (
+          {options.map((option) => (
             <div
               key={option.id}
               className={`w-72 h-60 rounded-lg border border-[#FFCA8D] p-5 cursor-pointer transition-colors duration-200 ${
