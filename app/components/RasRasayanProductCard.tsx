@@ -3,14 +3,55 @@ import Image from "next/image";
 interface RasRasayanProductCardProps {
   name: string;
   speciality: string;
+  price: string;
+  originalPrice?: string;
+  rating: number;
+  reviewCount: number;
   imageUrl?: string;
 }
 
 export default function RasRasayanProductCard({
   name,
   speciality,
+  price,
+  originalPrice,
+  rating,
+  reviewCount,
   imageUrl,
 }: RasRasayanProductCardProps) {
+  const renderStars = (rating: number) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <span key={i} className="text-green-600 text-lg">
+          ★
+        </span>,
+      );
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <span key="half" className="text-green-600 text-lg">
+          ☆
+        </span>,
+      );
+    }
+
+    const remainingStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < remainingStars; i++) {
+      stars.push(
+        <span key={`empty-${i}`} className="text-gray-300 text-lg">
+          ☆
+        </span>,
+      );
+    }
+
+    return stars;
+  };
+
   return (
     <div className="flex flex-col items-center">
       {/* Product Image */}
@@ -31,7 +72,7 @@ export default function RasRasayanProductCard({
       </div>
 
       {/* Product Name */}
-      <h3 className="text-center text-base md:text-lg font-semibold text-black mb-4 px-2">
+      <h3 className="text-center text-base md:text-lg font-semibold text-black mb-2 px-2">
         {name}
       </h3>
 
@@ -40,15 +81,28 @@ export default function RasRasayanProductCard({
         <p className="text-base md:text-lg font-semibold text-black">
           Speciality :-
         </p>
-        <p className="text-sm md:text-base text-gray-600 mt-2 px-2">
-          {speciality}
-        </p>
       </div>
 
-      {/* Rating/Details Bar */}
+      {/* Rating and Reviews */}
+      <div className="flex items-center gap-2 mb-2">
+        <div className="flex">{renderStars(rating)}</div>
+        <span className="text-sm text-gray-600">{reviewCount} reviews</span>
+      </div>
+
+      {/* Pricing */}
+      <div className="flex items-center gap-2 text-center mb-4">
+        <span className="text-lg font-semibold text-green-600">₹{price}</span>
+        {originalPrice && (
+          <span className="text-sm text-gray-500 line-through">
+            ₹{originalPrice}
+          </span>
+        )}
+      </div>
+
+      {/* Rating bar placeholder */}
       <div className="w-full">
         <div className="h-20 bg-gray-100 rounded-lg flex items-center justify-center">
-          <span className="text-xs text-gray-500">Product Details</span>
+          <span className="text-xs text-gray-500">Rating Details</span>
         </div>
       </div>
     </div>

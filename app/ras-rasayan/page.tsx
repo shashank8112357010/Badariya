@@ -9,21 +9,33 @@ export default function RasRasayan() {
   const rasRasayanProducts = [
     {
       id: "kamini-vidrawan-ras",
-      name: "Kamini Vidrawan Ras Keshar Yukta",
+      name: "Badariya Fat Slim Capsules",
       speciality:
         "Enhances vitality and vigor, helps overcome fatigue and weakness",
+      price: "636",
+      originalPrice: "711",
+      rating: 4.5,
+      reviewCount: 1280,
     },
     {
       id: "swarna-bhasma",
-      name: "Swarna Bhasma Premium",
+      name: "Badariya Fat Slim Capsules",
       speciality:
         "Pure gold ash preparation for ultimate rejuvenation and longevity",
+      price: "636",
+      originalPrice: "711",
+      rating: 4.5,
+      reviewCount: 1280,
     },
     {
       id: "makardhwaja-special",
-      name: "Makardhwaja Special Formula",
+      name: "Badariya Fat Slim Capsules",
       speciality:
         "Traditional mercury-sulfur preparation for enhanced strength and vitality",
+      price: "636",
+      originalPrice: "711",
+      rating: 4.5,
+      reviewCount: 1280,
     },
   ];
 
@@ -100,6 +112,10 @@ export default function RasRasayan() {
                   key={product.id}
                   name={product.name}
                   speciality={product.speciality}
+                  price={product.price}
+                  originalPrice={product.originalPrice}
+                  rating={product.rating}
+                  reviewCount={product.reviewCount}
                 />
               ))}
             </div>
